@@ -15,6 +15,11 @@ export class SvgDocument {
   get height(): number { return this.canvasHeight; }
   get children(): readonly Shape[] { return this.root.children; }
   get count(): number { return this.all().length; }
+  rootAttributes(): Readonly<Record<string, string>> { return this.root.attributes(); }
+  importRootAttribute(name: string, value: string): void {
+    if (['fill', 'stroke', 'stroke-width'].includes(name)) this.root.setAttribute(name, value);
+    else this.root.importPresentation(name, value);
+  }
   clone(): SvgDocument { return new SvgDocument(this.width, this.height, this.root.clone()); }
 
   resize(width: number, height: number): void {

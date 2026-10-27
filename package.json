@@ -4,11 +4,11 @@
   "private": true,
   "description": "高级软件开发 Lab1 Phase 1：面向对象 SVG CLI",
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": { "node": ">=24" },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "cli": "npm run build --silent && node dist/src/main.js",
-    "test": "npm run build --silent && node --test dist/test/*.test.js",
+    "test": "npm run build --silent && node --test --test-isolation=none dist/test/*.test.js",
     "check": "npm test && node scripts/check-architecture.mjs",
     "demo": "npm run build --silent && node dist/src/main.js < examples/flowchart.commands"
   },

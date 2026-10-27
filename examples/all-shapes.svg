@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <g id="scene">
+    <line id="edge" x1="140" y1="65" x2="185" y2="65" stroke="black"/>
+    <rect id="r1" x="20" y="30" width="120" height="70" fill="#4a90d9" stroke="black" stroke-width="2"/>
+    <g id="bucket">
+      <circle id="c1" cx="230" cy="70" r="35" fill="#f5a623"/>
+      <ellipse id="e1" cx="408" cy="78" rx="60" ry="36" fill="green"/>
+    </g>
+    <text id="title" x="20" y="150" fill="#333333">SVG Lab1</text>
+  </g>
+</svg>

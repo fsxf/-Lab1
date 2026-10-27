@@ -1,0 +1,32 @@
+# 全部命令成功路径回放，不含预期失败；输出保存至 examples/all-shapes.svg
+help
+init 640 480
+canvas
+canvas 800 600
+create g scene
+create rect r1 20 30 120 70 #4a90d9 in scene
+create circle c1 220 65 35 #f5a623 in scene
+create ellipse e1 340 65 50 30 green in scene
+create line edge 140 65 185 65 black in scene
+create text title 20 150 "SVG Lab1" in scene
+set title fill #333333
+set r1 stroke black
+set r1 stroke-width 2
+move c1 10 5
+scale e1 1.2
+group markers c1 e1
+create g bucket in scene
+addto bucket markers
+front title
+back edge
+tree scene
+show c1
+ungroup markers
+undo
+redo
+delete bucket
+undo
+save examples/all-shapes.svg
+read examples/all-shapes.svg
+save
+tree

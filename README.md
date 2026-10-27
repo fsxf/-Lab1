@@ -49,4 +49,4 @@ node dist/src/main.js < examples/all-commands.commands
 
 读入支持六种元素、文本实体、常用展示属性、嵌套 translate 和正数等比 scale；变换展开到几何坐标，并保留受缩放影响的文字大小和描边宽度。缺 id 的元素按标签名分配，预留全文已有 id，打印警告。其余图形、混合文本 tspan、旋转、非等比缩放、CSS/style、非匹配 viewBox、DTD 等未覆盖内容明确拒绝，防止静默丢失。允许无 xmlns 的简单 SVG，保存时统一写标准命名空间。`create box` 属后续阶段，本阶段按要求报未知类型；已有 `data-kind="box"` 的 g 作为普通 g 读入。
 
-Git 开发过程及提交说明见 [实验文档](doc/README.md)。远程地址为 `https://github.com/fsxf/-Lab1.git`。
+Git 开发过程及提交说明见 [实验文档](doc/README.md)。远程地址为 `https://github.com/fsxf/-Lab1`。

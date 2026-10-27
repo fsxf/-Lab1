@@ -1,0 +1,88 @@
+
+> lab1-svg-editor@0.1.0 check
+> npm test && node scripts/check-architecture.mjs
+
+
+> lab1-svg-editor@0.1.0 test
+> npm run build --silent && node --test --test-isolation=none dist/test/*.test.js
+
+✔ lexer handles quoted in, escaped quotes, empty text, Windows paths and full-line comments (4.347899ms)
+✔ real SVG files support spaces in paths, remembered save path and transactional failed read/write (9.750666ms)
+✔ failed external SVG import emits no partial warnings and does not replace current document (1.321751ms)
+✔ atomic save respects existing file permissions and retains original bytes on failure (1.062942ms)
+✔ piped REPL recovers after errors, prints each on one line and exits with failure status (128.034578ms)
+✔ piped flowchart demo saves an eight-element SVG and a successful CLI returns zero (80.668703ms)
+✔ SVG round-trip preserves all shape types, hierarchy, appearance, text and default omission (7.039094ms)
+✔ missing IDs are assigned in preorder with reservations for later explicit IDs (1.389213ms)
+✔ imports nested translate/scale in SVG order and retains text presentation (3.78333ms)
+✔ root style and unknown plugin data-kind survive, imported group remains an ordinary group (1.622191ms)
+✔ text preserves leading/trailing spaces, XML entities and CDATA (1.981768ms)
+✔ unsupported or malformed SVG is rejected: <svg><rect id="r"/><circle id="r"/></svg> (0.61569ms)
+✔ unsupported or malformed SVG is rejected: <svg><rect></svg> (0.283904ms)
+✔ unsupported or malformed SVG is rejected: <svg><rect width="1" width="2"/></svg> (0.513178ms)
+✔ unsupported or malformed SVG is rejected: <svg><rect x="NaN"/></svg> (0.378618ms)
+✔ unsupported or malformed SVG is rejected: <svg/><svg/> (0.656719ms)
+✔ unsupported or malformed SVG is rejected: <html/> (0.195294ms)
+✔ unsupported or malformed SVG is rejected: <svg><path id="p" d="M0 0"/></svg> (0.314319ms)
+✔ unsupported or malformed SVG is rejected: <svg><script>alert(1)</script></svg> (0.266917ms)
+✔ unsupported or malformed SVG is rejected: <svg onload="evil()"/> (0.284705ms)
+✔ unsupported or malformed SVG is rejected: <!DOCTYPE svg [<!ENTITY x SYSTEM "file:///etc/passwd">]><svg/> (0.145376ms)
+✔ unsupported or malformed SVG is rejected: <svg><text><tspan>unsupported</tspan></text></svg> (0.347707ms)
+✔ unsupported or malformed SVG is rejected: <svg viewBox="10 0 50 60"/> (0.189137ms)
+✔ unsupported or malformed SVG is rejected: <svg width="100" height="100" viewBox="0 0 50 50"/> (0.207678ms)
+✔ unsupported or malformed SVG is rejected: <svg><g transform="rotate(45)"/></svg> (0.27093ms)
+✔ unsupported or malformed SVG is rejected: <svg><g transform="scale(2,3)"/></svg> (0.256404ms)
+✔ unsupported or malformed SVG is rejected: <svg><rect height="-1"/></svg> (2.311173ms)
+✔ unsupported or malformed SVG is rejected: <svg xmlns="http://example.org/not-svg"/> (0.229124ms)
+✔ unsupported or malformed SVG is rejected: <svg>unexpected text</svg> (0.215862ms)
+✔ unsupported or malformed SVG is rejected: <svg><rect>unexpected text</rect></svg> (0.269246ms)
+✔ unsupported or malformed SVG is rejected: <svg><rect id="bad id"/></svg> (0.227968ms)
+✔ help is available initially, all document commands need a document (1.25069ms)
+✔ all six types, geometry, optional appearance, IDs and explicit parent (3.18257ms)
+✔ move and scale polymorphically recurse through nested groups (3.682173ms)
+✔ set supports geometry, common style and text while preserving group inheritance (1.300776ms)
+✔ group keeps original sibling order despite reversed arguments; undo restores all parents and positions (2.759739ms)
+✔ cross-parent group uses lowest common ancestor, document order and first affected branch (1.32151ms)
+✔ delete subtree is one undo unit; redo removes descendant IDs (1.419058ms)
+✔ addto appends, sibling z-order matches SVG painting order and every operation is undoable (2.355375ms)
+✔ new successful edit invalidates redo, failed edits and display do not (1.231872ms)
+✔ successful document operation locks both histories: init 300 200 (0.920598ms)
+✔ successful document operation locks both histories: save file.svg (0.6372ms)
+✔ successful document operation locks both histories: canvas 300 200 (0.63573ms)
+✔ successful document operation locks both histories: read file.svg (0.986486ms)
+✔ failed IO, failed canvas change and missing save path retain document and history (0.795395ms)
+✔ failed command preserves state and redo: create rect r 0 0 1 1 (0.896568ms)
+✔ failed command preserves state and redo: delete absent (0.665571ms)
+✔ failed command preserves state and redo: create circle c 0 0 1 in absent (0.771599ms)
+✔ failed command preserves state and redo: create circle c 0 0 1 in r (0.702762ms)
+✔ failed command preserves state and redo: create box x 0 0 1 1 "box" (0.703522ms)
+✔ failed command preserves state and redo: create hexagon h (0.605784ms)
+✔ failed command preserves state and redo: group bad r g (1.884262ms)
+✔ failed command preserves state and redo: group bad r r (0.579893ms)
+✔ failed command preserves state and redo: group bad r absent (0.685324ms)
+✔ failed command preserves state and redo: addto nested g (0.521356ms)
+✔ failed command preserves state and redo: addto g g (0.455353ms)
+✔ failed command preserves state and redo: ungroup g (0.500844ms)
+✔ failed command preserves state and redo: ungroup r (0.455146ms)
+✔ failed command preserves state and redo: scale g 0 (0.44596ms)
+✔ failed command preserves state and redo: scale g -1 (0.391879ms)
+✔ failed command preserves state and redo: scale g NaN (0.477414ms)
+✔ failed command preserves state and redo: move r Infinity 1 (0.398124ms)
+✔ failed command preserves state and redo: set r width -1 (0.52771ms)
+✔ failed command preserves state and redo: set r stroke-width -1 (0.524467ms)
+✔ failed command preserves state and redo: set r id x (0.541407ms)
+✔ failed command preserves state and redo: set g x 10 (0.60613ms)
+✔ failed command preserves state and redo: create text t 0 0 "unfinished (0.557698ms)
+✔ failed command preserves state and redo: move r 1 (0.555868ms)
+✔ failed command preserves state and redo: unknown (0.632843ms)
+✔ numeric overflow halfway through recursive move rolls back every descendant (0.907607ms)
+✔ snapshot undo restores exact floating values instead of inverse arithmetic (0.494788ms)
+ℹ tests 71
+ℹ suites 0
+ℹ pass 71
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 344.818678
+Architecture check passed: 33 source files, 96 imports; dependency rules, class filenames, no switch dispatch.
